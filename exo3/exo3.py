@@ -41,26 +41,22 @@ La chaîne OK si le backlog est vide. Sinon retourner la chaîne KO.
 
 
 def processLines(lines) -> str:
-    N = int(lines[0])  
-    T = int(lines[1])  
-    backlog = T 
-    
-    
-    for i in range(2, N+2):
+    # Implementer votre réponse ici
+    return "OK"
+def processLines(lines) -> str:
+    # Lire le nombre de sprints et le nombre initial de tâches
+    N = int(lines[0])  # Nombre de sprints
+    T = int(lines[1])  # Nombre initial de tâches
+
+    # Initialiser le backlog avec le nombre de tâches initial
+    backlog = T
+
+    # Parcourir les lignes des sprints
+    for i in range(2, N + 2):
         V, U = map(int, lines[i].split())
-        backlog -= V 
-        backlog += U 
+        # Mettre à jour le backlog
+        backlog += V  # Ajouter les tâches validées
+        backlog += U  # Ajouter ou supprimer les tâches (U peut être négatif)
 
-   
+    # Vérifier si le backlog est vide
     return "OK" if backlog == 0 else "KO"
-
-
-lines = [
-    "3",  
-    "10",   
-    "4 2",  
-    "5 -1", 
-    "3 0"   
-]
-
-print(processLines(lines))  # Doit renvoyer OK
