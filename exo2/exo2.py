@@ -28,3 +28,8 @@ fixed_tests_False = (
     ( "spam",    "eggs"  )
 )
 """
+
+def solution(string, ending):
+    return string.endswith(ending)
+
+
